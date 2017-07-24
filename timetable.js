@@ -46,7 +46,8 @@ var timetable = function(id,settings) {
 		var width = (timespan / this.getSetting("stepDivider")*this.getSetting("stepWidth"))+"%";
 		var offset = (((item.start - this.getSetting("start")) / this.getSetting("stepDivider"))*this.getSetting("stepWidth"))+"%";
 
-		var ret = '<div class="tt-bar pull-left" style="width:'+width+';background-color:'+this.getSetting("barColor")+'"></div>';
+		var ret = '<div class="tt-bar pull-left" style="width:'+width+';background-color:'
+					+(("barColor" in item) ? item.barColor : this.getSetting("barColor"))+'"></div>';
 		if(offset !== "0%") {
 			ret = '<div class="tt-offset pull-left" style="width:'+offset+'"></div>'+ret;	
 		}

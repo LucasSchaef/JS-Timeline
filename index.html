@@ -31,14 +31,14 @@
         </div>
     </div>
     <div class="row">
-    	<div class="col-lg-10 col-lg-offset-1" id="timetable">
+    	<div class="col-lg-10 col-md-offset-1" id="timetable">
         	<!-- create table here -->
         </div>
     </div>
 </div>
 
 <script>
-tt = new timetable("timetable");
+tt = new timetable("timetable", { useDatesTooltip: true });
 tt.addItem({ name: "Item1", start: new Date(2017, 7, 11, 12), end: new Date(2017, 7, 11, 14)});
 tt.addItem({ name: "WholeDay", start: new Date(2017, 7, 11, 0), end: new Date(2017, 7, 11, 24)});
 tt.addItem({ name: "TwoDays", start: new Date(2017, 7, 10, 0), end: new Date(2017, 7, 11, 24), barColor: "#5cb85c"});

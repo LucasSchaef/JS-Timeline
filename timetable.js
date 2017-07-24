@@ -1,15 +1,14 @@
 var timetable = function(id,settings) {
 	this.id = id;
 	this.oDates;
-	this.userSettings = settings;
+	this.userSettings = (typeof settings == "undefined") ? {} : settings;
 	this.defaultSettings = {
 		barColor: "#337ab7",
 		step: "days",
 		stepCount: 12,
 		maxDaysDayStep: 12,
 		maxDaysWeekStep: 84,
-		maxDaysMonthStep: 548,
-		updateHead: false
+		maxDaysMonthStep: 548
 	}
 	this.items = [];
 	
@@ -18,12 +17,12 @@ var timetable = function(id,settings) {
 	}
 	
 	this.makeTable = function() {
-		var ret = "";
-		
+		var ret = '<table class="table table-hover table-bordered">';
+        ret += '<thead>';
+        ret += '<tr><th width="15%">What?</th><th width="15%">Start</th><th width="15%">End</th><th>Schedule</th></tr>';
+        ret += '</thead><tbody>';
+
 		if(this.setOverallDates()) {
-			if(this.getSetting("updateHead") !== false) {
-				this.updateHead(this.getSetting("updateHead"));	
-			}
 			var self = this;
 			$.each(this.items, function(i,v) {
 				ret += '<tr>';
@@ -34,9 +33,9 @@ var timetable = function(id,settings) {
 				ret += '</tr>';	
 			});
 		} else {
-			ret = '<tr><td>No data found.</td></tr>';
+			ret += '<tr><td>No data found.</td></tr>';
 		}
-		
+		ret += '</table>';
 		return ret;
 	}
 	

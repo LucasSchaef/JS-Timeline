@@ -27,30 +27,18 @@
 <div class="container">
 	<div class="row">
     	<div class="col-lg-4 col-lg-offset-4 text-center">
-        	<span class="lead">Your schedule!</span><br />
-            <span class="bg-info">This uses dummy data.</span><br /><br />
+        	<h1>Your schedule!<br /><small>This uses dummy data.</small></h1>
         </div>
     </div>
     <div class="row">
-    	<div class="col-lg-10 col-lg-offset-1">
-        	<table class="table table-hover table-bordered">
-            	<thead>
-                	<tr>
-                    	<th width="15%">What?</th>
-                        <th width="15%">Start</th>
-                        <th width="15%">End</th>
-                        <th id="tt-s-head">Schedule</th>
-                    </tr>
-                </thead>
-                <tbody id="timetable">
-                </tbody>
-            </table>
+    	<div class="col-lg-10 col-lg-offset-1" id="timetable">
+        	<!-- create table here -->
         </div>
     </div>
 </div>
 
 <script>
-tt = new timetable("timetable", { updateHead: "tt-s-head" });
+tt = new timetable("timetable");
 tt.addItem({ name: "Item1", start: new Date(2017, 7, 11, 12), end: new Date(2017, 7, 11, 14)});
 tt.addItem({ name: "WholeDay", start: new Date(2017, 7, 11, 0), end: new Date(2017, 7, 11, 24)});
 tt.addItem({ name: "TwoDays", start: new Date(2017, 7, 10, 0), end: new Date(2017, 7, 11, 24), barColor: "#5cb85c"});
